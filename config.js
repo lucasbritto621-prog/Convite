@@ -32,11 +32,11 @@ window.CONFIG = {
   cerimonia: "2027-07-18T17:00:00-03:00",
 
   // Textos de horário que aparecem nas páginas
-  horaCerimonia: "17h",
-  chegadaConvidados: "16h30",
-  chegadaPadrinhos: "15h",
-  horaFotos: "15h30",
-  horaJantar: "19h",
+  horaCerimonia: "16h30h",
+  chegadaConvidados: "16h00",
+  chegadaPadrinhos: "16h00",
+  horaFotos: "17h30",
+  horaJantar: "19h00",
   horaFesta: "21h",
 
 
