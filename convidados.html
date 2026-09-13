@@ -21,18 +21,17 @@ window.CONFIG = {
   /* ---- Links externos ---------------------------------- */
 
   // Site da lista de presentes (o botão "Dar presente" leva pra cá)
-  presentes: "",
+  presentes: "https://noivos.casar.com/heloisa-e-lucas-2027-07-18#/presentes",
 
   // Álbum compartilhado de fotos (Google Fotos, iCloud, etc.)
+  // >>> NO DIA DO EVENTO: cole o link do álbum aqui. <<<
   album: "",
 
   // Confirmação de presença dos convidados.
-  // Pode ser um formulário (Google Forms) ou um link de WhatsApp, ex.:
-  // "https://wa.me/5519999999999?text=Ol%C3%A1!%20Confirmo%20minha%20presen%C3%A7a"
-  rsvp: "",
+  rsvp: "https://noivos.casar.com/heloisa-e-lucas-2027-07-18#/rsvp",
 
   // Confirmação de presença dos padrinhos (pode ser o mesmo link acima)
-  rsvpPadrinhos: "",
+  rsvpPadrinhos: "https://noivos.casar.com/heloisa-e-lucas-2027-07-18#/rsvp",
 
   // Grupo de WhatsApp dos padrinhos e madrinhas
   grupoPadrinhos: "",
@@ -408,6 +407,19 @@ a { color: inherit; }
 }
 .quadro-acao svg { width: 11px; height: 11px; }
 
+/* quadro bloqueado (álbum antes do dia) */
+.quadro-bloqueado {
+  cursor: default;
+  opacity: .72;
+  filter: drop-shadow(0 8px 12px rgba(58, 40, 35, .1)) grayscale(.15);
+}
+.quadro-bloqueado:hover {
+  transform: rotate(0deg) translateY(-3px);
+  filter: drop-shadow(0 10px 14px rgba(58, 40, 35, .14)) grayscale(.15);
+}
+.quadro-bloqueado .quadro-icone { color: var(--tinta-2); opacity: .6; }
+.quadro-bloqueado .quadro-acao { color: var(--tinta-2); opacity: .7; }
+
 .rodape-inicial {
   margin-top: clamp(46px, 6vw, 72px);
   text-align: center;
@@ -486,6 +498,32 @@ a { color: inherit; }
   text-transform: uppercase;
   color: var(--terracota);
   opacity: .75;
+}
+
+/* capa com foto de fundo do local */
+.capa-fundo {
+  position: relative;
+  isolation: isolate;
+}
+.capa-fundo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("local.jpeg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px) brightness(.75) saturate(.9);
+  z-index: -2;
+}
+.capa-fundo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,251,246,.55) 0%, rgba(255,251,246,.85) 55%, var(--papel) 100%);
+  z-index: -1;
+}
+.capa-fundo .arco {
+  box-shadow: 0 24px 50px -20px rgba(58, 40, 35, .5);
 }
 
 .capa h1 {
@@ -625,6 +663,26 @@ a { color: inherit; }
   background: linear-gradient(to bottom right, transparent 46%, var(--rosa) 46%, var(--rosa) 54%, transparent 54%);
 }
 
+/* foto de sugestão de trajes */
+.trajes-foto {
+  max-width: 760px;
+  margin: clamp(38px, 5vw, 58px) auto 0;
+  padding: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 20px 44px -26px rgba(58, 40, 35, .5);
+  border: 1px solid rgba(190, 154, 78, .45);
+}
+.trajes-foto img { width: 100%; height: auto; display: block; }
+.trajes-legenda {
+  margin-top: 14px;
+  font-size: 11px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--tinta-2);
+  text-align: center;
+}
+
 /* =========================================================
    Roteiro (padrinhos)
    ========================================================= */
@@ -728,6 +786,28 @@ a { color: inherit; }
 }
 
 /* =========================================================
+   Mapa do local
+   ========================================================= */
+
+.mapa-wrap {
+  max-width: 820px;
+  margin: 0 auto;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(190, 154, 78, .5);
+  box-shadow: 0 24px 50px -30px rgba(58, 40, 35, .5);
+  background: var(--papel-2);
+  position: relative;
+}
+.mapa-wrap iframe {
+  width: 100%;
+  height: clamp(280px, 45vw, 420px);
+  border: 0;
+  display: block;
+  filter: saturate(.95) contrast(1.02);
+}
+
+/* =========================================================
    Rodapé
    ========================================================= */
 
@@ -789,14 +869,17 @@ a { color: inherit; }
      Este arquivo não depende de nenhuma pasta. Pode abrir
      com dois cliques que já funciona.
 
-     Para mudar links e horários, edite o bloco CONFIG logo
-     abaixo. Ele se repete nas três páginas: se mudar aqui,
-     mude também em convidados.html e padrinhos.html.
+     Para mudar links e horários, edite o bloco CONFIG lá em cima.
+
+     >>> DIA DO EVENTO <<<
+     Para liberar o álbum de fotos, procure a linha:
+         album: "",
+     e cole o link do álbum entre as aspas.
      ========================================================= -->
 <body>
 
-<!-- ===== capa ===== -->
-<header class="capa">
+<!-- ===== capa (com foto do local ao fundo) ===== -->
+<header class="capa capa-fundo">
 
   <a class="voltar" href="index.html">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
@@ -918,6 +1001,12 @@ a { color: inherit; }
       </div>
     </div>
 
+    <!-- sugestão visual de trajes -->
+    <figure class="trajes-foto revela">
+      <img src="trajes.jpeg" alt="Sugestões de trajes para os convidados" loading="lazy">
+      <figcaption class="trajes-legenda">Sugestões de trajes — esporte fino</figcaption>
+    </figure>
+
   </div>
 </section>
 
@@ -988,6 +1077,44 @@ a { color: inherit; }
   </div>
 </section>
 
+<!-- ===== local / mapa ===== -->
+<section class="secao secao-creme">
+  <div class="envelope centro">
+
+    <div class="cartao-titulo revela">
+      <span class="rotulo">Onde tudo vai acontecer</span>
+      <p class="script">Como</p>
+      <h2 class="titulo">Chegar</h2>
+    </div>
+
+    <p class="texto revela" style="max-width:620px;margin-inline:auto">
+      Av. Fábio da Silva Prado, 7690 — Elihu Root<br>
+      Araras - SP, 13604-042
+    </p>
+
+    <div class="mapa-wrap revela">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d962.4653475211629!2d-47.33262015516464!3d-22.308203638314122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c871945e191267%3A0x70345d341f4f757b!2sDestak%20Eventos!5e1!3m2!1spt-BR!2sbr!4v1789308392330!5m2!1spt-BR!2sbr"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title="Mapa do local do casamento">
+      </iframe>
+    </div>
+
+    <a class="botao revela"
+       href="https://www.google.com/maps?rlz=1C5GCEM_enBR1119BR1119&gs_lcrp=EgZjaHJvbWUyCggAEEUYFhgeGDkyDQgBEC4YrwEYxwEYgAQyDQgCEC4YrwEYxwEYgAQyBwgDEAAYgAQyBwgEEAAYgAQyCAgFEAAYFhgeMggIBhAAGBYYHjIICAcQABgWGB4yCggIEAAYChgWGB7SAQgzNzc3ajBqN6gCCLACAfEFKRstiHycfZc&um=1&ie=UTF-8&fb=1&gl=br&sa=X&geocode=KWcSGV6UcciUMXt1Tx80XTRw&daddr=Av.+F%C3%A1bio+da+Silva+Prado,+7690+-+Elihu+Root,+Araras+-+SP,+13604-042"
+       target="_blank" rel="noopener">
+      Ir para o local
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </svg>
+    </a>
+
+  </div>
+</section>
+
 <!-- ===== rodapé ===== -->
 <footer class="rodape">
   <svg class="monograma" viewBox="0 0 64 64" aria-hidden="true">
@@ -1003,7 +1130,7 @@ a { color: inherit; }
 <script>
 /* =========================================================
    Lucas & Heloísa — comportamento do site
-   Não precisa mexer aqui. Tudo que muda está em config.js
+   Não precisa mexer aqui. Tudo que muda está no CONFIG.
    ========================================================= */
 
 (function () {
@@ -1015,7 +1142,8 @@ a { color: inherit; }
   /* ---- 1. Aplica os links vindos do config ------------- */
 
   document.querySelectorAll("[data-link]").forEach(function (el) {
-    var destino = (C[el.dataset.link] || "").trim();
+    var chave = el.dataset.link;
+    var destino = (C[chave] || "").trim();
 
     if (destino) {
       el.setAttribute("href", destino);
@@ -1107,25 +1235,6 @@ a { color: inherit; }
       el.style.transitionDelay = (i % 4) * 90 + "ms";
       observador.observe(el);
     });
-  }
-
-  /* ---- 6. Pétalas ------------------------------------- */
-
-  var ceu = document.querySelector(".petalas");
-  if (ceu && !semMovimento) {
-    var tons = ["#E9BDB6", "#F3DBD4", "#E9D4A3", "#CD827B"];
-    var fragmento = document.createDocumentFragment();
-
-    for (var i = 0; i < 14; i++) {
-      var p = document.createElement("i");
-      p.style.left = Math.random() * 98 + "vw";
-      p.style.background = tons[i % tons.length];
-      p.style.animationDuration = (16 + Math.random() * 16).toFixed(1) + "s";
-      p.style.animationDelay = "-" + (Math.random() * 22).toFixed(1) + "s";
-      p.style.transform = "scale(" + (0.6 + Math.random() * 0.8).toFixed(2) + ")";
-      fragmento.appendChild(p);
-    }
-    ceu.appendChild(fragmento);
   }
 
 })();
