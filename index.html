@@ -350,7 +350,6 @@ a { color: inherit; }
 
 .quadro:nth-child(1) { transform: rotate(-2.2deg); }
 .quadro:nth-child(2) { transform: rotate(1.1deg); }
-.quadro:nth-child(3) { transform: rotate(-1.4deg); }
 
 .quadro:hover,
 .quadro:focus-visible {
@@ -784,6 +783,43 @@ a { color: inherit; }
   .capa { padding-top: 26px; }
 }
 
+/* =========================================================
+   Endereço discreto
+   ========================================================= */
+
+.endereco-discreto {
+  margin-top: 24px;
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--tinta-2);
+  line-height: 1.6;
+}
+.endereco-discreto a {
+  color: var(--tinta-2);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(190, 154, 78, .4);
+  transition: color .3s ease, border-color .3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.endereco-discreto a:hover {
+  color: var(--terracota);
+  border-color: var(--terracota);
+}
+.endereco-discreto a svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+/* Ajuste mobile para o endereço */
+@media (max-width: 480px) {
+  .endereco-discreto {
+    font-size: 11px;
+    margin-top: 18px;
+  }
+}
 </style>
 </head>
 
@@ -794,8 +830,7 @@ a { color: inherit; }
      com dois cliques que já funciona.
 
      Para mudar links e horários, edite o bloco CONFIG logo
-     abaixo. Ele se repete nas três páginas: se mudar aqui,
-     mude também em convidados.html e padrinhos.html.
+     abaixo.
      ========================================================= -->
 <body class="pagina-inicial">
 
@@ -843,6 +878,17 @@ a { color: inherit; }
     <p class="data-linha">
       <span>Domingo</span> <i></i> <b>18 de julho de 2027</b> <i></i> <span>Araras, SP</span>
     </p>
+
+    <!-- Endereço discreto com link para o GPS -->
+    <p class="endereco-discreto">
+      <a href="https://www.google.com/maps?rlz=1C5GCEM_enBR1119BR1119&gs_lcrp=EgZjaHJvbWUyCggAEEUYFhgeGDkyDQgBEC4YrwEYxwEYgAQyDQgCEC4YrwEYxwEYgAQyBwgDEAAYgAQyBwgEEAAYgAQyCAgFEAAYFhgeMggIBhAAGBYYHjIICAcQABgWGB4yCggIEAAYChgWGB7SAQgzNzc3ajBqN6gCCLACAfEFKRstiHycfZc&um=1&ie=UTF-8&fb=1&gl=br&sa=X&geocode=KWcSGV6UcciUMXt1Tx80XTRw&daddr=Av.+F%C3%A1bio+da+Silva+Prado,+7690+-+Elihu+Root,+Araras+-+SP,+13604-042" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        Av. Fábio da Silva Prado, 7690 — Araras, SP
+      </a>
+    </p>
   </header>
 
   <nav class="galeria" aria-label="Escolha o seu convite">
@@ -855,25 +901,8 @@ a { color: inherit; }
           <path d="M2.6 6.4 12 13.4l9.4-7"/>
         </svg>
       </span>
-      <span class="quadro-nome">Sou convidado</span>
-      <span class="quadro-nota">O convite com tudo sobre o nosso dia</span>
-      <span class="quadro-acao">
-        Abrir convite
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </span>
-    </a>
-
-    <a class="quadro" href="padrinhos.html">
-      <svg class="moldura-svg" viewBox="0 0 320 380" preserveAspectRatio="none" aria-hidden="true"><use href="#moldura"/></svg>
-      <span class="quadro-icone" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9.4 12 3 7.6v8.8L9.4 12z"/>
-          <path d="M14.6 12 21 7.6v8.8L14.6 12z"/>
-          <rect x="9.4" y="9.6" width="5.2" height="4.8" rx="1.2"/>
-        </svg>
-      </span>
-      <span class="quadro-nome">Sou padrinho</span>
-      <span class="quadro-nota">O convite, mais traje, horários e roteiro</span>
+      <span class="quadro-nome">Convite</span>
+      <span class="quadro-nota">Abra e descubra todos os detalhes do nosso grande dia</span>
       <span class="quadro-acao">
         Abrir convite
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
