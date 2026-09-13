@@ -20,17 +20,17 @@ window.CONFIG = {
 
   /* ---- Links externos ---------------------------------- */
 
-  // Site da lista de presentes (o botão "Dar presente" leva pra cá)
+  // Site da lista de presentes
   presentes: "https://noivos.casar.com/heloisa-e-lucas-2027-07-18#/presentes",
 
-  // Álbum compartilhado de fotos (Google Fotos, iCloud, etc.)
+  // Álbum compartilhado de fotos
   // >>> NO DIA DO EVENTO: cole o link do álbum aqui. <<<
   album: "",
 
   // Confirmação de presença dos convidados.
   rsvp: "https://noivos.casar.com/heloisa-e-lucas-2027-07-18#/rsvp",
 
-  // Confirmação de presença dos padrinhos (pode ser o mesmo link acima)
+  // Confirmação de presença dos padrinhos
   rsvpPadrinhos: "https://noivos.casar.com/heloisa-e-lucas-2027-07-18#/rsvp",
 
   // Grupo de WhatsApp dos padrinhos e madrinhas
@@ -39,10 +39,8 @@ window.CONFIG = {
 
   /* ---- Data e horários --------------------------------- */
 
-  // Momento exato da cerimônia, no formato AAAA-MM-DDTHH:MM:SS-03:00
   cerimonia: "2027-07-18T17:00:00-03:00",
 
-  // Textos de horário que aparecem nas páginas
   horaCerimonia: "17h",
   chegadaConvidados: "16h30",
   chegadaPadrinhos: "15h",
@@ -52,13 +50,10 @@ window.CONFIG = {
 
 
   /* ---- Traje dos padrinhos e madrinhas ----------------- */
-  // Troque pelos combinados de vocês. Os círculos coloridos
-  // da página usam os códigos de cor logo abaixo.
 
   trajePadrinhos: "Terno em tom grafite, camisa branca e gravata lisa.",
   trajeMadrinhas: "Vestido longo, tecido encorpado por causa do frio.",
 
-  // Cores do traje (código hexadecimal) e o nome que aparece embaixo
   coresTraje: [
     { cor: "#4A4E4D", nome: "Grafite" },
     { cor: "#6B5B4A", nome: "Terra" },
@@ -76,7 +71,6 @@ window.CONFIG = {
 <style>
 /* =========================================================
    Lucas & Heloísa — 18.07.2027
-   Paleta: branco quente, rosa, terracota, dourado
    ========================================================= */
 
 :root {
@@ -117,7 +111,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* textura de papel */
 body::after {
   content: "";
   position: fixed;
@@ -155,7 +148,6 @@ a { color: inherit; }
 .titulo {
   font-family: var(--display);
   font-weight: 400;
-  font-style: normal;
   text-transform: uppercase;
   letter-spacing: .16em;
   font-size: clamp(24px, 4.2vw, 44px);
@@ -188,11 +180,9 @@ a { color: inherit; }
 
 .centro { text-align: center; }
 
-/* cabeçalho de seção: rótulo + script + título */
 .cartao-titulo { text-align: center; margin-bottom: clamp(36px, 5vw, 64px); }
 .cartao-titulo .script { margin-bottom: -.18em; }
 
-/* fio ornamental */
 .fio {
   display: flex;
   align-items: center;
@@ -226,231 +216,6 @@ a { color: inherit; }
 .secao-terra .rotulo { color: var(--dourado-2); }
 .secao-terra .texto { color: rgba(255, 251, 246, .82); }
 .secao-terra .fio { color: var(--dourado-2); }
-
-/* =========================================================
-   Moldura dourada (elemento-assinatura)
-   ========================================================= */
-
-.moldura-svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  pointer-events: none;
-}
-
-/* =========================================================
-   Página inicial — a parede de quadros
-   ========================================================= */
-
-.pagina-inicial {
-  background: radial-gradient(120% 80% at 50% 0%, var(--papel) 0%, var(--papel-2) 55%, var(--blush) 100%) no-repeat fixed;
-}
-
-.parede {
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 56px 22px 40px;
-  position: relative;
-  z-index: 1;
-}
-
-.monograma {
-  width: 62px;
-  height: 62px;
-  margin: 0 auto 26px;
-  color: var(--dourado);
-}
-
-.abertura { text-align: center; max-width: 720px; margin: 0 auto; }
-
-.abertura .script { color: var(--rosa); margin-bottom: 2px; }
-
-.abertura h1 {
-  font-family: var(--display);
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: .18em;
-  font-size: clamp(28px, 6vw, 62px);
-  line-height: 1.08;
-  margin: 0;
-  color: var(--tinta);
-}
-
-.data-linha {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 22px;
-  font-size: 11.5px;
-  letter-spacing: .3em;
-  text-transform: uppercase;
-  color: var(--tinta-2);
-}
-.data-linha b { font-weight: 400; color: var(--terracota); }
-.data-linha i {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--dourado); display: inline-block;
-}
-
-/* trilho onde os quadros ficam pendurados */
-.galeria {
-  --trilho: 34px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: clamp(20px, 4vw, 46px);
-  margin: clamp(52px, 7vw, 84px) auto 0;
-  padding-top: var(--trilho);
-  position: relative;
-  width: 100%;
-  max-width: 1000px;
-}
-
-/* o "arame" horizontal */
-.galeria::before {
-  content: "";
-  position: absolute;
-  top: 6px;
-  left: 6%;
-  right: 6%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--dourado) 12%, var(--dourado) 88%, transparent);
-  opacity: .45;
-}
-
-.quadro {
-  position: relative;
-  width: min(290px, 78vw);
-  aspect-ratio: 320 / 380;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  text-decoration: none;
-  padding: 13% 14%;
-  color: var(--tinta);
-  background: transparent;
-  filter: drop-shadow(0 10px 14px rgba(58, 40, 35, .12));
-  transition: transform .5s cubic-bezier(.2, .8, .3, 1), filter .5s ease;
-  transform-origin: 50% -22px;
-}
-
-.quadro:nth-child(1) { transform: rotate(-2.2deg); }
-.quadro:nth-child(2) { transform: rotate(1.1deg); }
-.quadro:nth-child(3) { transform: rotate(-1.4deg); }
-
-.quadro:hover,
-.quadro:focus-visible {
-  transform: rotate(0deg) translateY(-7px);
-  filter: drop-shadow(0 20px 22px rgba(58, 40, 35, .22));
-}
-
-/* preguinho + cordão */
-.quadro::before {
-  content: "";
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  width: 7px; height: 7px;
-  margin-left: -3.5px;
-  border-radius: 50%;
-  background: var(--dourado);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, .12);
-}
-.quadro::after {
-  content: "";
-  position: absolute;
-  top: -26px;
-  left: 50%;
-  width: 1px; height: 28px;
-  background: var(--dourado);
-  opacity: .55;
-}
-
-.quadro-icone { color: var(--terracota); margin-bottom: 14px; }
-.quadro-icone svg { width: 34px; height: 34px; }
-
-.quadro-nome {
-  font-family: var(--display);
-  text-transform: uppercase;
-  letter-spacing: .2em;
-  font-size: clamp(14px, 1.5vw, 17px);
-  line-height: 1.3;
-  margin: 0 0 10px;
-}
-
-.quadro-nota {
-  font-size: 12.5px;
-  line-height: 1.6;
-  color: var(--tinta-2);
-  margin: 0;
-  max-width: 22ch;
-}
-
-.quadro-acao {
-  margin-top: 16px;
-  font-size: 10px;
-  letter-spacing: .3em;
-  text-transform: uppercase;
-  color: var(--dourado-escuro);
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-}
-.quadro-acao svg { width: 11px; height: 11px; }
-
-/* quadro bloqueado (álbum antes do dia) */
-.quadro-bloqueado {
-  cursor: default;
-  opacity: .72;
-  filter: drop-shadow(0 8px 12px rgba(58, 40, 35, .1)) grayscale(.15);
-}
-.quadro-bloqueado:hover {
-  transform: rotate(0deg) translateY(-3px);
-  filter: drop-shadow(0 10px 14px rgba(58, 40, 35, .14)) grayscale(.15);
-}
-.quadro-bloqueado .quadro-icone { color: var(--tinta-2); opacity: .6; }
-.quadro-bloqueado .quadro-acao { color: var(--tinta-2); opacity: .7; }
-
-.rodape-inicial {
-  margin-top: clamp(46px, 6vw, 72px);
-  text-align: center;
-  font-size: 11px;
-  letter-spacing: .26em;
-  text-transform: uppercase;
-  color: var(--tinta-2);
-}
-
-/* pétalas ambientes */
-.petalas {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
-}
-.petalas i {
-  position: absolute;
-  top: -6vh;
-  width: 9px;
-  height: 12px;
-  border-radius: 60% 0 60% 0;
-  opacity: .5;
-  animation: cair linear infinite;
-}
-@keyframes cair {
-  0% { transform: translate3d(0, -10vh, 0) rotate(0deg); opacity: 0; }
-  12% { opacity: .55; }
-  100% { transform: translate3d(14vw, 108vh, 0) rotate(420deg); opacity: 0; }
-}
 
 /* =========================================================
    Convite — capa
@@ -518,7 +283,6 @@ a { color: inherit; }
   color: var(--tinta-2);
 }
 
-/* voltar */
 .voltar {
   position: absolute;
   top: 20px;
@@ -571,7 +335,7 @@ a { color: inherit; }
 }
 
 /* =========================================================
-   Trio de colunas (cerimônia / recepção / dress code)
+   Trio
    ========================================================= */
 
 .trio {
@@ -626,7 +390,7 @@ a { color: inherit; }
 }
 
 /* =========================================================
-   Blocos de texto (dicas)
+   Blocos
    ========================================================= */
 
 .blocos {
@@ -640,7 +404,7 @@ a { color: inherit; }
   border-top: 1px solid rgba(190, 154, 78, .45);
 }
 
-/* paleta de cores sugerida */
+/* paleta */
 .paleta {
   display: flex;
   flex-wrap: wrap;
@@ -678,7 +442,7 @@ a { color: inherit; }
   background: linear-gradient(to bottom right, transparent 46%, var(--rosa) 46%, var(--rosa) 54%, transparent 54%);
 }
 
-/* foto de sugestão de trajes */
+/* trajes */
 .trajes-foto {
   max-width: 760px;
   margin: clamp(38px, 5vw, 58px) auto 0;
@@ -697,61 +461,6 @@ a { color: inherit; }
   color: var(--tinta-2);
   text-align: center;
 }
-
-/* =========================================================
-   Roteiro (padrinhos)
-   ========================================================= */
-
-.roteiro { list-style: none; margin: 0; padding: 0; max-width: 620px; margin-inline: auto; }
-
-.roteiro li {
-  display: grid;
-  grid-template-columns: 86px 1fr;
-  gap: 20px;
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(233, 212, 163, .35);
-  align-items: baseline;
-}
-.roteiro li:last-child { border-bottom: 0; }
-
-.roteiro b {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: 17px;
-  letter-spacing: .08em;
-  color: var(--dourado-2);
-  font-variant-numeric: tabular-nums;
-}
-
-.roteiro p { margin: 0; }
-.roteiro strong {
-  display: block;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: .18em;
-  font-size: 12px;
-  margin-bottom: 4px;
-}
-
-/* lista de conferência */
-.conferir { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 10px; }
-.conferir li {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  font-size: 14.5px;
-  color: var(--tinta-2);
-}
-.conferir li::before {
-  content: "";
-  flex: 0 0 auto;
-  width: 13px; height: 13px;
-  margin-top: 6px;
-  border: 1px solid var(--dourado);
-  border-radius: 2px;
-}
-.secao-terra .conferir li { color: rgba(255, 251, 246, .85); }
-.secao-terra .conferir li::before { border-color: var(--dourado-2); }
 
 /* =========================================================
    Botões
@@ -785,7 +494,6 @@ a { color: inherit; }
 .botao-cheio { background: var(--terracota); color: var(--papel); }
 .botao-cheio:hover { background: var(--tinta); border-color: var(--tinta); }
 
-/* link ainda não configurado */
 .link-pendente {
   opacity: .45;
   pointer-events: none;
@@ -801,7 +509,7 @@ a { color: inherit; }
 }
 
 /* =========================================================
-   Mapa do local
+   Mapa do local — CORRIGIDO
    ========================================================= */
 
 .mapa-wrap {
@@ -813,13 +521,17 @@ a { color: inherit; }
   box-shadow: 0 24px 50px -30px rgba(58, 40, 35, .5);
   background: var(--papel-2);
   position: relative;
+  /* aspect ratio garante altura mesmo antes do iframe carregar */
+  aspect-ratio: 16 / 10;
+  width: 100%;
 }
 .mapa-wrap iframe {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: clamp(280px, 45vw, 420px);
+  height: 100%;
   border: 0;
   display: block;
-  filter: saturate(.95) contrast(1.02);
 }
 
 /* =========================================================
@@ -843,7 +555,7 @@ a { color: inherit; }
 }
 
 /* =========================================================
-   Revelação no scroll
+   Revelação
    ========================================================= */
 
 .revela {
@@ -856,8 +568,6 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .revela { opacity: 1; transform: none; transition: none; }
-  .petalas { display: none; }
-  .quadro { transition: none; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
 }
 
@@ -866,32 +576,14 @@ a { color: inherit; }
    ========================================================= */
 
 @media (max-width: 720px) {
-  .galeria { --trilho: 30px; }
-  .galeria::before { left: 30%; right: 30%; }
-  .quadro { width: min(300px, 82vw); }
-  .quadro:nth-child(n) { transform: rotate(0deg); }
-  .roteiro li { grid-template-columns: 70px 1fr; gap: 14px; }
   .voltar { position: static; display: inline-flex; margin-bottom: 26px; }
   .capa { padding-top: 26px; }
   .local-legenda { font-size: 9.5px; bottom: 14px; left: 16px; right: 16px; }
+  .mapa-wrap { aspect-ratio: 4 / 5; }
 }
-
 </style>
 </head>
 
-
-<!-- =========================================================
-     TUDO NUM ARQUIVO SÓ
-     Este arquivo não depende de nenhuma pasta. Pode abrir
-     com dois cliques que já funciona.
-
-     Para mudar links e horários, edite o bloco CONFIG lá em cima.
-
-     >>> DIA DO EVENTO <<<
-     Para liberar o álbum de fotos, procure a linha:
-         album: "",
-     e cole o link do álbum entre as aspas.
-     ========================================================= -->
 <body>
 
 <!-- ===== capa ===== -->
@@ -973,7 +665,6 @@ a { color: inherit; }
 
     </div>
 
-    <!-- faixa com a foto do local -->
     <figure class="local-faixa revela">
       <img src="local.jpeg" alt="Local do casamento — capela ao ar livre" loading="lazy">
       <figcaption class="local-legenda">O cenário — Destak Eventos &middot; Araras, SP</figcaption>
@@ -1023,11 +714,32 @@ a { color: inherit; }
       </div>
     </div>
 
-    <!-- sugestão visual de trajes -->
     <figure class="trajes-foto revela">
       <img src="trajes.png" alt="Sugestões de trajes para os convidados" loading="lazy">
       <figcaption class="trajes-legenda">Sugestões de trajes — esporte fino</figcaption>
     </figure>
+
+  </div>
+</section>
+
+<!-- ===== presentes (agora antes do álbum) ===== -->
+<section class="secao secao-terra">
+  <div class="envelope centro">
+
+    <div class="cartao-titulo revela">
+      <span class="rotulo">Para o cenário da próxima temporada</span>
+      <p class="script">Aquele com os</p>
+      <h2 class="titulo">Presentes</h2>
+    </div>
+
+    <div class="revela" style="max-width:600px;margin-inline:auto">
+      <p class="texto">A sua presença já é o maior presente. Mas se quiser nos ajudar a montar o cenário da nossa próxima temporada, a nossa lista está aqui. O pagamento vai direto para a conta dos noivos.</p>
+      <a class="botao botao-claro" data-link="presentes">
+        Ver a lista de presentes
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+      </a>
+      <span class="aviso-pendente" hidden>Lista em breve</span>
+    </div>
 
   </div>
 </section>
@@ -1050,28 +762,6 @@ a { color: inherit; }
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M8 8l4-4 4 4M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
       </a>
       <span class="aviso-pendente" hidden>Álbum em breve</span>
-    </div>
-
-  </div>
-</section>
-
-<!-- ===== presentes ===== -->
-<section class="secao secao-terra">
-  <div class="envelope centro">
-
-    <div class="cartao-titulo revela">
-      <span class="rotulo">Para o cenário da próxima temporada</span>
-      <p class="script">Aquele com os</p>
-      <h2 class="titulo">Presentes</h2>
-    </div>
-
-    <div class="revela" style="max-width:600px;margin-inline:auto">
-      <p class="texto">A sua presença já é o maior presente. Mas se quiser nos ajudar a montar o cenário da nossa próxima temporada, a nossa lista está aqui. O pagamento vai direto para a conta dos noivos.</p>
-      <a class="botao botao-claro" data-link="presentes">
-        Ver a lista de presentes
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
-      </a>
-      <span class="aviso-pendente" hidden>Lista em breve</span>
     </div>
 
   </div>
@@ -1150,19 +840,13 @@ a { color: inherit; }
 </footer>
 
 <script>
-/* =========================================================
-   Lucas & Heloísa — comportamento do site
-   Não precisa mexer aqui. Tudo que muda está no CONFIG.
-   ========================================================= */
-
 (function () {
   "use strict";
 
   var C = window.CONFIG || {};
   var semMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---- 1. Aplica os links vindos do config ------------- */
-
+  /* ---- 1. Links do config ---- */
   document.querySelectorAll("[data-link]").forEach(function (el) {
     var chave = el.dataset.link;
     var destino = (C[chave] || "").trim();
@@ -1173,10 +857,14 @@ a { color: inherit; }
         el.setAttribute("target", "_blank");
         el.setAttribute("rel", "noopener");
       }
+      if (chave === "album" && el.dataset.albumBloqueado === "1") {
+        el.classList.remove("quadro-bloqueado");
+        el.removeAttribute("data-album-bloqueado");
+        el.removeAttribute("aria-disabled");
+      }
       return;
     }
 
-    // Link ainda não preenchido: desativa e explica o que falta.
     el.removeAttribute("href");
     el.classList.add("link-pendente");
     el.setAttribute("aria-disabled", "true");
@@ -1186,24 +874,7 @@ a { color: inherit; }
     if (aviso) aviso.hidden = false;
   });
 
-  /* ---- 2. Aplica os textos vindos do config ------------ */
-
-  document.querySelectorAll("[data-texto]").forEach(function (el) {
-    var valor = C[el.dataset.texto];
-    if (valor) el.textContent = valor;
-  });
-
-  /* ---- 3. Círculos de cor do traje dos padrinhos ------- */
-
-  var paletaTraje = document.querySelector("[data-paleta-traje]");
-  if (paletaTraje && Array.isArray(C.coresTraje)) {
-    paletaTraje.innerHTML = C.coresTraje.map(function (t) {
-      return '<div class="tom"><i style="background:' + t.cor + '"></i><span>' + t.nome + "</span></div>";
-    }).join("");
-  }
-
-  /* ---- 4. Contagem regressiva -------------------------- */
-
+  /* ---- 2. Contagem regressiva ---- */
   var relogio = document.querySelector("[data-contagem]");
   if (relogio) {
     var alvo = new Date(C.cerimonia || "2027-07-18T17:00:00-03:00").getTime();
@@ -1217,16 +888,13 @@ a { color: inherit; }
 
     var atualiza = function () {
       var falta = alvo - Date.now();
-
       if (falta <= 0) {
         relogio.innerHTML = '<p class="script" style="color:var(--terracota)">É hoje!</p>';
         clearInterval(tique);
         return;
       }
-
       var s = Math.floor(falta / 1000);
       var pad = function (n) { return String(n).padStart(2, "0"); };
-
       campos.dias.textContent = Math.floor(s / 86400);
       campos.horas.textContent = pad(Math.floor(s / 3600) % 24);
       campos.minutos.textContent = pad(Math.floor(s / 60) % 60);
@@ -1237,8 +905,7 @@ a { color: inherit; }
     var tique = setInterval(atualiza, 1000);
   }
 
-  /* ---- 5. Revelação no scroll -------------------------- */
-
+  /* ---- 3. Revelação no scroll ---- */
   var alvos = document.querySelectorAll(".revela");
 
   if (semMovimento || !("IntersectionObserver" in window)) {
@@ -1258,9 +925,7 @@ a { color: inherit; }
       observador.observe(el);
     });
   }
-
 })();
-
 </script>
 </body>
 </html>
