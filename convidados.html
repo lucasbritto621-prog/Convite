@@ -500,32 +500,6 @@ a { color: inherit; }
   opacity: .75;
 }
 
-/* capa com foto de fundo do local */
-.capa-fundo {
-  position: relative;
-  isolation: isolate;
-}
-.capa-fundo::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("local.jpeg");
-  background-size: cover;
-  background-position: center;
-  filter: blur(2px) brightness(.75) saturate(.9);
-  z-index: -2;
-}
-.capa-fundo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(255,251,246,.55) 0%, rgba(255,251,246,.85) 55%, var(--papel) 100%);
-  z-index: -1;
-}
-.capa-fundo .arco {
-  box-shadow: 0 24px 50px -20px rgba(58, 40, 35, .5);
-}
-
 .capa h1 {
   font-family: var(--display);
   font-weight: 400;
@@ -609,6 +583,47 @@ a { color: inherit; }
 
 .trio-item .icone { color: var(--dourado-2); margin-bottom: 16px; }
 .trio-item .icone svg { width: 40px; height: 40px; margin: 0 auto; }
+
+/* =========================================================
+   Foto do local — faixa horizontal
+   ========================================================= */
+
+.local-faixa {
+  margin: clamp(46px, 6vw, 72px) auto 0;
+  max-width: 900px;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(233, 212, 163, .55);
+  box-shadow: 0 24px 50px -30px rgba(0, 0, 0, .55);
+}
+.local-faixa img {
+  width: 100%;
+  height: clamp(220px, 38vw, 400px);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.local-faixa::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(58, 40, 35, .35) 100%);
+  pointer-events: none;
+}
+.local-legenda {
+  position: absolute;
+  bottom: 18px;
+  left: 22px;
+  right: 22px;
+  z-index: 2;
+  color: var(--papel);
+  font-size: 10.5px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  text-align: left;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, .5);
+}
 
 /* =========================================================
    Blocos de texto (dicas)
@@ -858,6 +873,7 @@ a { color: inherit; }
   .roteiro li { grid-template-columns: 70px 1fr; gap: 14px; }
   .voltar { position: static; display: inline-flex; margin-bottom: 26px; }
   .capa { padding-top: 26px; }
+  .local-legenda { font-size: 9.5px; bottom: 14px; left: 16px; right: 16px; }
 }
 
 </style>
@@ -878,8 +894,8 @@ a { color: inherit; }
      ========================================================= -->
 <body>
 
-<!-- ===== capa (com foto do local ao fundo) ===== -->
-<header class="capa capa-fundo">
+<!-- ===== capa ===== -->
+<header class="capa">
 
   <a class="voltar" href="index.html">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
@@ -956,6 +972,13 @@ a { color: inherit; }
       </div>
 
     </div>
+
+    <!-- faixa com a foto do local -->
+    <figure class="local-faixa revela">
+      <img src="local.jpeg" alt="Local do casamento — capela ao ar livre" loading="lazy">
+      <figcaption class="local-legenda">O cenário — Destak Eventos &middot; Araras, SP</figcaption>
+    </figure>
+
   </div>
 </section>
 
