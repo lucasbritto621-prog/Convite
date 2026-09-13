@@ -9,7 +9,7 @@ window.CONFIG = {
   /* ---- Links externos ---------------------------------- */
 
   // Site da lista de presentes (o botão "Dar presente" leva pra cá)
-  presentes: "",
+  presentes: "https://noivos.casar.com/heloisa-e-lucas-2027-07-18#/presentes",
 
   // Álbum compartilhado de fotos (Google Fotos, iCloud, etc.)
   album: "",
@@ -17,10 +17,10 @@ window.CONFIG = {
   // Confirmação de presença dos convidados.
   // Pode ser um formulário (Google Forms) ou um link de WhatsApp, ex.:
   // "https://wa.me/5519999999999?text=Ol%C3%A1!%20Confirmo%20minha%20presen%C3%A7a"
-  rsvp: "",
+  rsvp: "https://noivos.casar.com/heloisa-e-lucas-2027-07-18#/rsvp",
 
   // Confirmação de presença dos padrinhos (pode ser o mesmo link acima)
-  rsvpPadrinhos: "",
+  rsvpPadrinhos: "https://noivos.casar.com/heloisa-e-lucas-2027-07-18#/rsvp",
 
   // Grupo de WhatsApp dos padrinhos e madrinhas
   grupoPadrinhos: "",
